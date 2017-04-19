@@ -6,8 +6,8 @@ Send your answers (even if they're incomplete!) to gerard.kelly@webdoctor.ie
 
 # About the screener
 
-- When you're working on the coding questions, you should treat it like **real world production code**. We'll want to see a test suite, comments where required and things like that. It's important to **focus on the details**. It shouldn't feel like code you've hacked together in a rush, but something you'd be proud to have your name on.
-- You can use whatever language you wish but since our devs are mostly experienced with Ruby, please ensure your code is well commented (or better yet, self-commenting!).
+- When you're working on the coding questions, you should treat it like **real world production code**. It's important to **focus on the details**. It shouldn't feel like code you've hacked together in a rush, but something you'd be proud to have your name on.
+- You can use whatever language you wish but, since our devs are mostly experienced with Ruby, please ensure your code is well commented (or better yet, self-documenting!).
 - We're pretty flexible on how you provide the answers. You can send over a link to a Github/Bitbucket repo, some folks send over a series of Github gists, others a zipped up copy of the code etc.
 
 # Assignment
@@ -23,6 +23,10 @@ find_doctor('doctors.csv,' 'Tuesday',  '15:30')
 The output maybe be something like:
 
 ```
-Dr. O'Driscoll is available
-Dr. O'Connell is available
+Dr. Kim is available
+Dr. May is available
 ```
+
+# On Site Pair Programming
+
+After you've submitted your solution, we'll review and organise a pair programming session in our Dublin office where we'll discuss your code. We'll also introduce a new requirement for the application and work through it together. 
