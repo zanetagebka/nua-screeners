@@ -12,12 +12,12 @@ Send your answers (even if they're incomplete!) to gerard.kelly@webdoctor.ie
 
 # Assignment
 
-Given a CSV file with a list of doctors and the days and times they work over the next week, create a program that has a method which takes the input file, a day name and a time in 24 hour format and prints out the list of available doctors.
+Given a CSV file with a list of doctors and the days they work over the next week, create a program that has a method which takes a day name and prints out the list of available doctors.
 
 The initial method might look something like:
 
 ```
-find_doctor('doctors.csv,' 'Tuesday',  '15:30')
+find_doctor('Tuesday')
 ```
 
 The output maybe be something like:
@@ -26,6 +26,8 @@ The output maybe be something like:
 Dr. Kim is available
 Dr. May is available
 ```
+
+Finally, please provide a short paragraph which describes your solution and why you took the approach that you did.
 
 # On Site Pair Programming
 
