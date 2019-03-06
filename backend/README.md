@@ -27,6 +27,11 @@ Dr. Kim is available
 Dr. May is available
 ```
 
+Addtional requirements:
+
+* Application should be runnable via the command line
+* Your code should include tests 
+
 Finally, please provide a short paragraph which describes your solution and why you took the approach that you did.
 
 # On Site Pair Programming
