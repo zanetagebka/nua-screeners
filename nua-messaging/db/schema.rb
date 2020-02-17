@@ -12,33 +12,33 @@
 
 ActiveRecord::Schema.define(version: 20190626153436) do
 
-  create_table "inboxes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "inboxes", force: :cascade do |t|
     t.integer "user_id"
-    t.index ["user_id"], name: "index_inboxes_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_inboxes_on_user_id"
   end
 
-  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "body",       limit: 65535
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
     t.integer  "outbox_id"
     t.integer  "inbox_id"
-    t.boolean  "read",                     default: false
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.index ["inbox_id"], name: "index_messages_on_inbox_id", using: :btree
-    t.index ["outbox_id"], name: "index_messages_on_outbox_id", using: :btree
+    t.boolean  "read",       default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["inbox_id"], name: "index_messages_on_inbox_id"
+    t.index ["outbox_id"], name: "index_messages_on_outbox_id"
   end
 
-  create_table "outboxes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "outboxes", force: :cascade do |t|
     t.integer "user_id"
-    t.index ["user_id"], name: "index_outboxes_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_outboxes_on_user_id"
   end
 
-  create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "payments", force: :cascade do |t|
     t.integer "user_id"
-    t.index ["user_id"], name: "index_payments_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.boolean  "is_patient", default: true
     t.boolean  "is_doctor",  default: false
     t.boolean  "is_admin",   default: false
