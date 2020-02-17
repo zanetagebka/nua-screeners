@@ -1,4 +1,3 @@
-# interview-screeners
 Our Engineering Technical Screener Tests
 
 ### Nua Messaging
