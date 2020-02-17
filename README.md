@@ -3,7 +3,7 @@ Our Engineering Technical Screener Tests
 
 ### Nua Messaging
 
-Our engineering technical screener test. This is Rails application that need to be extended with additional functionality. You'll find details in [nua-messaging](https://github.com/webdoctorgroup/interview-screeners/tree/master/nua-messaging) directory in [README.md](https://github.com/webdoctorgroup/interview-screeners/tree/master/nua-messaging/README.md) file.
+Our engineering technical screener test. This is Rails application that need to be extended with additional functionality. You'll find details in [nua-messaging](https://github.com/webdoctorgroup/interview-screeners/tree/master/nua-messaging) directory.
 
 ### Sorting Excercise
 
