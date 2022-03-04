@@ -1,4 +1,4 @@
-class CreateUsersMessagesInboxesOutboxesAndPayments < ActiveRecord::Migration[5.0]
+class CreateUsersMessagesInboxesOutboxesAndPayments < ActiveRecord::Migration[6.1]
   def change
     create_table :users do |t|
       t.boolean :is_patient, default: true
