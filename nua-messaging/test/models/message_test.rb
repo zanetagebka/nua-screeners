@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require '/Users/zanetagebka/development/webdoctor/interview-screeners/nua-messaging/test/test_helper'
+require './test/test_helper'
 
 class MessageTest < ActiveSupport::TestCase
 
@@ -11,7 +11,7 @@ class MessageTest < ActiveSupport::TestCase
   end
 
   test 'after create outbox is assigned to sender and inbox to receiver' do
-    message = Message.create(body: 'something')
+    message = Message.create(body: 'something', inbox: inbox(:second), outbox: outbox(:second))
 
     assert_equal User.default_doctor.inbox, message.inbox
     assert_equal User.current.outbox, message.outbox

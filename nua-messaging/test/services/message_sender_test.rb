@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require '/Users/zanetagebka/development/webdoctor/interview-screeners/nua-messaging/test/test_helper'
+require './test/test_helper'
 
 class MessageSenderTest < ActiveSupport::TestCase
 
@@ -9,7 +9,7 @@ class MessageSenderTest < ActiveSupport::TestCase
                                       outbox: outbox(:first))
     message = Message.new(body: 'No, Im not!')
 
-    MessageSender.new(original_message, message).call
+    MessageSenderService.new(original_message, message).call
 
     assert_equal message.reload.inbox, User.default_admin.inbox
   end
@@ -18,7 +18,7 @@ class MessageSenderTest < ActiveSupport::TestCase
     original_message = Message.create(body: 'I told you, you are sick!', created_at: Date.today)
     message = Message.new(body: 'I do not listen doctors, I prefer magic')
 
-    MessageSender.new(original_message, message).call
+    MessageSenderService.new(original_message, message).call
 
     assert_equal User.default_doctor.inbox, message.reload.inbox
   end
@@ -27,7 +27,7 @@ class MessageSenderTest < ActiveSupport::TestCase
     original_message = Message.create(body: 'I told you, you are sick!', created_at: Date.today)
     message = Message.new(body: 'I do not listen doctors, I prefer magic')
 
-    MessageSender.new(original_message, message).call
+    MessageSenderService.new(original_message, message).call
 
     assert_equal User.default_doctor.inbox, message.reload.inbox
 

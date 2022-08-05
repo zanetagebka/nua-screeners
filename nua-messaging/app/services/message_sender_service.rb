@@ -1,4 +1,4 @@
-class MessageSender
+class MessageSenderService
 
   def initialize(original_message, message)
     @original_message = original_message

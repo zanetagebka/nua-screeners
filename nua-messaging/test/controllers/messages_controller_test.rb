@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require '/Users/zanetagebka/development/webdoctor/interview-screeners/nua-messaging/test/test_helper'
+require './test/test_helper'
 
 class MessagesControllerTest < ActionDispatch::IntegrationTest
 
@@ -17,7 +17,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
 
   test 'when see the message decrease the read number on inbox' do
     original_message = Message.create(body: 'I told you, you are sick!', created_at: Date.today)
-    MessageSender.new(original_message, @message).call
+    MessageSenderService.new(original_message, @message).call
     assert_equal 1, @message.inbox.reload.unread
     get message_path(@message)
 
