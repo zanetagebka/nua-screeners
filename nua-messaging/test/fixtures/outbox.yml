@@ -1,0 +1,5 @@
+first:
+  user_id: <%= ActiveRecord::FixtureSet.identify(:doctor) %>
+
+second:
+  user_id: <%= ActiveRecord::FixtureSet.identify(:patient) %>

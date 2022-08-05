@@ -2,6 +2,8 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find(params[:id])
+    @message.update!(read: true)
+    @message.inbox.decrement!(:unread) unless @message.inbox.unread.zero?
   end
 
   def new
@@ -13,7 +15,7 @@ class MessagesController < ApplicationController
     @original_message = Message.find_by(id: session[:original_message])
     @message = Message.new(message_params)
 
-    ResolveMessageSender.new(@original_message, @message).call
+    MessageSender.new(@original_message, @message).call
 
     redirect_to messages_path
   rescue ActiveRecord::RecordInvalid

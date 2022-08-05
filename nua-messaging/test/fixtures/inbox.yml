@@ -1,0 +1,11 @@
+first:
+  user_id: <%= ActiveRecord::FixtureSet.identify(:patient) %>
+  unread: 0
+
+second:
+  user_id: <%= ActiveRecord::FixtureSet.identify(:doctor) %>
+  unread: 0
+
+third:
+  user_id: <%= ActiveRecord::FixtureSet.identify(:admin) %>
+  unread: 0
