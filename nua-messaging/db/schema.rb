@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_26_153436) do
+ActiveRecord::Schema.define(version: 2022_08_05_084715) do
 
   create_table "inboxes", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "unread"
     t.index ["user_id"], name: "index_inboxes_on_user_id"
   end
 
