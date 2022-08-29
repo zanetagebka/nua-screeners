@@ -24,4 +24,8 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def unread_count
+    inbox.unread
+  end
 end

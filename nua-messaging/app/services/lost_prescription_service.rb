@@ -5,18 +5,23 @@ class LostPrescriptionService
   end
 
   def call
-    send_message!
     issue_payment
+    inform_admin!
   end
 
   private
 
-  def send_message!
+  def inform_admin!
+    message = prepare_message!
+    message.inbox = User.default_admin.inbox
+    message.save!
+  end
+
+  def prepare_message!
     Message.create!(body: "#{@user.full_name} lost their prescription. Payment were issued.")
   end
 
   def issue_payment
-    PaymentProviderFactory.provider.debit_card(@user)
+    PaymentRequestService.new(@user).call
   end
-
 end

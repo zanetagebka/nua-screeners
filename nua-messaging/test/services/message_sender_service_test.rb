@@ -2,7 +2,7 @@
 
 require './test/test_helper'
 
-class MessageSenderTest < ActiveSupport::TestCase
+class MessageSenderServiceTest < ActiveSupport::TestCase
 
   test 'assign inbox to admin if original message is older than 7 days' do
     original_message = Message.create(body: 'You are sick.', created_at: 2.weeks.ago, inbox: inbox(:first),

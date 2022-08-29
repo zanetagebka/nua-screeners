@@ -1,4 +1,13 @@
 class MessagesController < ApplicationController
+  include Pagy::Backend
+  helper Pagy::Frontend
+
+  before_action :find_message, only: :resend_prescription
+
+  def index
+    messages = User.default_doctor.inbox.messages
+    @pagy, @messages = pagy(messages, items: 10)
+  end
 
   def show
     @message = Message.find(params[:id])
@@ -23,11 +32,20 @@ class MessagesController < ApplicationController
   end
 
   def resend_prescription
-    # send message to admin
-    # request payment
+    user = @message.inbox.user
+    LostPrescriptionService.new(user).call
+
+    redirect_to message_path(@message), notice: 'You will receive your prescription soon'
+
+  rescue ArgumentError
+    redirect_to message_path(@message), notice: 'We are sorry, but we cannot process your request right now.'
   end
 
   private
+
+  def find_message
+    @message = Message.find_by(params[:id])
+  end
 
   def message_params
     params.require(:message).permit(:body)
